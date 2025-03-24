@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-function ProductDetails({products}) {
+function ProductDetails({products, addToCart}) {
 
   const {id} = useParams()
   const product = products.find((p)=>p.id.toString()===id)
@@ -25,7 +25,10 @@ function ProductDetails({products}) {
             <p className="mt-2 text-sm md:text-2xl">Description: {product.description}</p>
             <p className='text-sm mt-2 md:text-2xl'>Category: {product.category}</p>
             <p className='text-sm mt-2 md:text-2xl'>Rating: ⭐ {product.rating} / 5</p>
-            <button className='mt-4 py-4 px-8 rounded bg-green-300 hover:bg-green-200 transition'>Add to Cart</button>
+            <button 
+              onClick={()=> addToCart(product)}
+              className='rounded text-3xl py-4 px-8 bg-black text-white mt-6 inline-block hover:ring-1 hover:ring-black hover:bg-white hover:text-black transition cursor-pointer'
+            >Add to Cart</button>
           </div>
         </div>
       </main>
