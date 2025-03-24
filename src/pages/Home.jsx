@@ -1,8 +1,13 @@
 import React from 'react'
+import TopRatedProducts from '../components/TopRatedProducts'
+import Hero from '../components/Hero'
 
-function Home() {
+function Home({topRatedProducts}) {
   return (
-    <div>Home</div>
+    <main className='mt-4'>
+      <Hero/>
+      <TopRatedProducts topRatedProducts={topRatedProducts}/>
+    </main>
   )
 }
 

@@ -1,29 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
 
-
-function Products() {
-
-  const[products, setProducts] = useState([])
-
-  useEffect(()=>{
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://dummyjson.com/products')
-        const data = await response.json()
-        setProducts(data.products)
-        console.log (data.products)
-      } catch (error) {
-        console.error('error fetching data', error)
-      }
-    }
-
-    fetchProducts()
-
-  },[])
+function Products({products}) {
 
   return (
-    <main className='p-10 flex flex-col justify-center items-center'>
+    <main className='p-10 flex flex-col justify-center items-center mt-4'>
       <h1 className='text-5xl font-bold'>Products</h1>
       <div>
         <ul>
